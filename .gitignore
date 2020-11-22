@@ -1,0 +1,9 @@
+.history
+.vscode
+node_modules
+dist
+storybook-static
+.idea/*
+.idea
+src/**/*.map
+
