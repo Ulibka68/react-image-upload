@@ -18,11 +18,11 @@ const useCanvas = (draw: tDrawFunc, useAnimation = true, imgRef = "") => {
             let {width, height} = canvas.getBoundingClientRect();
             width -= 16;
             height -= 16;
-            console.log("getBoundingClientRect : ", width, height);
+            // console.log("getBoundingClientRect : ", width, height);
 
             if (canvas.width !== width || canvas.height !== height) {
                 const {devicePixelRatio: ratio = 1} = window;
-                console.log("ratio ", ratio);
+                // console.log("ratio ", ratio);
 
                 canvas.width = width * ratio;
                 canvas.height = height * ratio;
@@ -128,10 +128,10 @@ function drawImage(ctx: CanvasRenderingContext2D, fn?: number, imgRef?: string) 
             dh = ctx.canvas.height - 16;
             dw = (dh * img.width) / img.height;
         }
-        console.log("drawImage");
-        console.log(ctx.canvas.width, ctx.canvas.height);
-        console.log(img.width, img.height);
-        console.log(dw, dh);
+        // console.log("drawImage");
+        // console.log(ctx.canvas.width, ctx.canvas.height);
+        // console.log(img.width, img.height);
+        // console.log(dw, dh);
         ctx.drawImage(img, 0, 0, img.width, img.height, 4, 4, dw, dh);
         URL.revokeObjectURL(imgRef!);
     };
