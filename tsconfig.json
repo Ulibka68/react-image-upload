@@ -5,6 +5,7 @@
       "types/*": ["src/types/*"],
       "@components/*": ["src/components/*"],
       "@modules/*": ["src/modules/*"],
+      "@pages/*": ["src/pages/*"],
       "@/*": ["src/*"]
     },
     "target": "es5",
