@@ -18,15 +18,15 @@ const useCanvas = (draw: tDrawFunc, useAnimation = true, imgRef = "") => {
             let {width, height} = canvas.getBoundingClientRect();
             width -= 16;
             height -= 16;
-            // console.log(width, height);
+            console.log("getBoundingClientRect : ", width, height);
 
             if (canvas.width !== width || canvas.height !== height) {
                 const {devicePixelRatio: ratio = 1} = window;
-                // console.log(ratio);
-                // const context = canvas.getContext("2d");
+                console.log("ratio ", ratio);
+
                 canvas.width = width * ratio;
                 canvas.height = height * ratio;
-                context!.scale(ratio, ratio);
+                // context!.scale(1 / ratio, 1 / ratio);
                 return true;
             }
 
@@ -82,7 +82,7 @@ export function ImageUploadUrl() {
         evt.preventDefault();
         evt.stopPropagation();
 
-        if (imgSrc) URL.revokeObjectURL(imgSrc);
+        // if (imgSrc) URL.revokeObjectURL(imgSrc);
 
         if (!evt.currentTarget.files?.length) {
             setimgSrc("");
@@ -119,17 +119,20 @@ function drawImage(ctx: CanvasRenderingContext2D, fn?: number, imgRef?: string) 
 
     const img = new Image();
     img.src = imgRef!;
-    // console.log("drawImage");
+
     img.onload = function () {
         // void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-        // console.log(img.width, img.height);
         let dw = ctx.canvas.width - 16;
         let dh = (dw * img.height) / img.width;
         if (dh > ctx.canvas.height - 16) {
             dh = ctx.canvas.height - 16;
             dw = (dh * img.width) / img.height;
         }
-        // console.log(dw, dh);
+        console.log("drawImage");
+        console.log(ctx.canvas.width, ctx.canvas.height);
+        console.log(img.width, img.height);
+        console.log(dw, dh);
         ctx.drawImage(img, 0, 0, img.width, img.height, 4, 4, dw, dh);
+        URL.revokeObjectURL(imgRef!);
     };
 }
