@@ -5,6 +5,7 @@ import {store} from "@/redux/store";
 import {TestPage} from "@/pages/testPage";
 import {ChanelsWindow} from "@/modules/ChanelWindow/chanelsWindow";
 import {PagesUploadImageCanvas} from "@pages/uploadImageCanvas";
+import {ImageUploadUrl} from "@components/imageUploadUrl";
 
 export const App: React.FC<{}> = () => (
     <Provider store={store}>
@@ -15,10 +16,10 @@ export const App: React.FC<{}> = () => (
                         <Link to="/">Начало</Link>
                     </li>
                     <li>
-                        <Link to="/chanelsWindow">SAGA Chanels</Link>
+                        <Link to="/uploadImage">Upload</Link>
                     </li>
                     <li>
-                        <Link to="/uploadImage">Upload</Link>
+                        <Link to="/uploadImageUrl">Upload image URL</Link>
                     </li>
                 </ul>
             </nav>
@@ -28,6 +29,9 @@ export const App: React.FC<{}> = () => (
                 </Route>
                 <Route path="/uploadImage">
                     <PagesUploadImageCanvas />
+                </Route>
+                <Route path="/uploadImageUrl">
+                    <ImageUploadUrl />
                 </Route>
                 <Route path="*">
                     <div>
