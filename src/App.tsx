@@ -6,6 +6,10 @@ import {TestPage} from "@/pages/testPage";
 import {ChanelsWindow} from "@/modules/ChanelWindow/chanelsWindow";
 import {PagesUploadImageCanvas} from "@pages/uploadImageCanvas";
 import {ImageUploadUrl} from "@components/imageUploadUrl";
+import {ImageUploadUrlNoCanvas} from "@components/imageUploadUrlImgOnly";
+import {Logger} from "@components/logview";
+
+Logger.debug("comment", "Cache", "a");
 
 export const App: React.FC<{}> = () => (
     <Provider store={store}>
@@ -21,6 +25,9 @@ export const App: React.FC<{}> = () => (
                     <li>
                         <Link to="/uploadImageUrl">Upload image URL</Link>
                     </li>
+                    <li>
+                        <Link to="/uploadImageUrlNoCanvas">Upload image NO canvas</Link>
+                    </li>
                 </ul>
             </nav>
             <Switch>
@@ -32,6 +39,9 @@ export const App: React.FC<{}> = () => (
                 </Route>
                 <Route path="/uploadImageUrl">
                     <ImageUploadUrl />
+                </Route>
+                <Route path="/uploadImageUrlNoCanvas">
+                    <ImageUploadUrlNoCanvas />
                 </Route>
                 <Route path="*">
                     <div>

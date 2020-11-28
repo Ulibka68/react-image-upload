@@ -17,3 +17,22 @@ https://habr.com/ru/post/491548/
 https://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas
 http://jsfiddle.net/influenztial/qy7h5/
 
+
+UI компоненты
+mui, reakit, semantic ui, ant design, bootstrap, grommet, rebass, chakra,
+Tailwind, fluent design
+
+Юзаю 
+материал или reakit
+elastic ui
+TailwindUI
+
+плагин @fullhuman/postcss-purgecss который неиспользуемый выкидывает
+
+npm i -D @fullhuman/postcss-purgecss
+const purgecss = require('@fullhuman/postcss-purgecss')
+postcss([
+  purgecss({
+    content: ['./src/**/*.html']
+  })
+])
